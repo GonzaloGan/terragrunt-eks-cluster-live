@@ -25,7 +25,7 @@ inputs = {
   cidr = "10.0.0.0/16"
 
 
-  azr             = ["${local.reg}-1a", "${local.reg}-1b", "${local.reg}-1c"]
+  azs             = ["${local.reg}a", "${local.reg}b", "${local.reg}c"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
   public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
 
