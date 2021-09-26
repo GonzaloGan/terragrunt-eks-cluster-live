@@ -29,7 +29,7 @@ provider "aws" {
   region = "${local.aws_region}"
 
   # Only these AWS Account IDs may be operated on by this template
-  allowed_account_ids = ["${local.account_id}"]
+  # allowed_account_ids = ["${local.account_id}"]
 }
 EOF
 }
@@ -39,7 +39,7 @@ remote_state {
   backend = "s3"
   config = {
     encrypt        = true
-    bucket         = "${get_env("TG_BUCKET_PREFIX", "")}-terragrunt-eks-cluster-live-${local.account_name}-${local.aws_region}"
+    bucket         = "terragrunt-eks-cluster-live-${local.account_name}-${local.aws_region}"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.aws_region
     dynamodb_table = "terraform-locks"
